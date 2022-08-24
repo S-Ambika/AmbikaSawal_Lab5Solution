@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>ML Deployment</title>
+    <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+<body>
+    <div class="login">
+        <h1>Car Loan Prediction</h1>
+
+        <!-- Main Input For Receiving Query to our ML -->
+        <form action="{{ url_for('predict')}}" method="post">
+
+            <input type="text" name="car_name" placeholder="Car Name" required="required" />
+            <input type="text" name="present_price" placeholder="Present Price" required="required" />
+            <input type="text" name="Selling_price" placeholder="Selling Price" required="required" />
+            <input type="text" name="kms_driven" placeholder="KMS Driven" required="required" />
+            <input type="text" name="fuel_type" placeholder="Fuel Type" required="required" />
+            <input type="text" name="seller_type" placeholder="Seller Type" required="required" />
+            <input type="text" name="owner" placeholder="Owner" required="required" />
+
+            <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+        </form>
+
+        <br>
+        <br> {{ prediction_text }}
+    </div>
+</body>
+
+</html>
